@@ -198,7 +198,14 @@ const CollectionSelector = () => {
           </span>
           <span className='text-[var(--secondary-color)]'>
             {selectedSets.length > 0
-              ? selectedSets.sort().join(', ').replace(/Set /g, 'Level ')
+              ? selectedSets
+                  .sort((a, b) => {
+                    const numA = parseInt(a.replace('Set ', ''));
+                    const numB = parseInt(b.replace('Set ', ''));
+                    return numA - numB;
+                  })
+                  .join(', ')
+                  .replace(/Set /g, 'Level ')
               : 'None'}
           </span>
         </div>
@@ -217,7 +224,7 @@ const CollectionSelector = () => {
       </div>
 
       {/* Game Modes Section */}
-      <div className='flex rounded-bl-2xl rounded-br-2xl bg-[var(--card-color)] p-4 gap-2 flex-col md:flex-row'>
+      <div className='flex rounded-bl-2xl rounded-br-2xl bg-[var(--card-color)] p-4 gap-4 flex-col md:flex-row'>
         {gameModes.map(gameMode => {
           const isSelected = gameMode === selectedGameMode;
 
