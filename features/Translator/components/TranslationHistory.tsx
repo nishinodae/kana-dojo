@@ -222,7 +222,7 @@ export default function TranslationHistory({
             <ActionButton
               colorScheme='secondary'
               borderColorScheme='secondary'
-              borderRadius='2xl'
+              borderRadius='xl'
               borderBottomThickness={6}
               className={cn(
                 '!w-9 !min-w-9 h-9 !p-0 flex-shrink-0',

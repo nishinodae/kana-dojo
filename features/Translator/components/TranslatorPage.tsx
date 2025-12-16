@@ -158,7 +158,7 @@ export default function TranslatorPage({ locale = 'en' }: TranslatorPageProps) {
           </div>
 
           {/* Translate button */}
-          <div className='flex justify-center px-4 sm:px-0'>
+          <div className='flex justify-center items-start px-4 sm:px-0 h-[54px] sm:h-[62px]'>
             <ActionButton
               onClick={handleTranslate}
               disabled={
