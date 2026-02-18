@@ -14,8 +14,37 @@ interface TranslatePageProps {
   params: Promise<{ locale: string }>;
 }
 
+function getSchemaFaqEntries(locale: string) {
+  const isEs = locale === 'es';
+  return [
+    {
+      question: isEs
+        ? 'El traductor es gratuito?'
+        : 'Is this translator free to use?',
+      answer: isEs
+        ? 'Si. El traductor es gratuito y no requiere registro.'
+        : 'Yes. The translator is free to use and does not require registration.',
+    },
+    {
+      question: isEs ? 'Existe un limite de uso?' : 'Are there usage limits?',
+      answer: isEs
+        ? 'Si. Se aplican limites de uso para mantener la estabilidad del servicio durante alta demanda.'
+        : 'Yes. Usage limits apply to keep the service stable during high demand.',
+    },
+    {
+      question: isEs
+        ? 'Cual es la longitud maxima por traduccion?'
+        : 'What is the maximum text length per translation?',
+      answer: isEs
+        ? 'Puedes traducir hasta 5,000 caracteres por solicitud.'
+        : 'You can translate up to 5,000 characters per request.',
+    },
+  ];
+}
+
 function getTranslatorSchema(locale: string) {
   const isEs = locale === 'es';
+  const schemaFaqEntries = getSchemaFaqEntries(locale);
 
   const appName = isEs
     ? 'Traductor Japones de KanaDojo'
@@ -63,44 +92,14 @@ function getTranslatorSchema(locale: string) {
         '@type': 'FAQPage',
         '@id': 'https://kanadojo.com/translate#faq',
         inLanguage: locale,
-        mainEntity: [
-          {
-            '@type': 'Question',
-            name: isEs
-              ? 'El traductor es gratuito?'
-              : 'Is this translator free to use?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: isEs
-                ? 'Si. El traductor es gratuito y no requiere registro.'
-                : 'Yes. The translator is free to use and does not require registration.',
-            },
+        mainEntity: schemaFaqEntries.map(item => ({
+          '@type': 'Question',
+          name: item.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: item.answer,
           },
-          {
-            '@type': 'Question',
-            name: isEs
-              ? 'Existe un limite de uso?'
-              : 'Are there usage limits?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: isEs
-                ? 'Si. Se aplican limites de uso para mantener la estabilidad del servicio durante alta demanda.'
-                : 'Yes. Usage limits apply to keep the service stable during high demand.',
-            },
-          },
-          {
-            '@type': 'Question',
-            name: isEs
-              ? 'Cual es la longitud maxima por traduccion?'
-              : 'What is the maximum text length per translation?',
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: isEs
-                ? 'Puedes traducir hasta 5,000 caracteres por solicitud.'
-                : 'You can translate up to 5,000 characters per request.',
-            },
-          },
-        ],
+        })),
       },
     ],
   };
@@ -118,6 +117,8 @@ export async function generateMetadata({
 
 export default async function TranslatePage({ params }: TranslatePageProps) {
   const { locale } = await params;
+  const isEs = locale === 'es';
+  const schemaFaqEntries = getSchemaFaqEntries(locale);
 
   return (
     <>
@@ -142,6 +143,29 @@ export default async function TranslatePage({ params }: TranslatePageProps) {
             content='Translate English and Japanese text with romaji support and learner-focused context.'
           />
           <TranslatorPage locale={locale} />
+          <section
+            className='mx-auto mt-8 w-full max-w-6xl rounded-2xl border border-(--border-color) bg-(--card-color) p-4 sm:p-6'
+            aria-labelledby='translate-quick-faq'
+          >
+            <h2
+              id='translate-quick-faq'
+              className='text-xl font-semibold text-(--main-color)'
+            >
+              {isEs ? 'Preguntas frecuentes rapidas' : 'Quick FAQ'}
+            </h2>
+            <div className='mt-4 space-y-4'>
+              {schemaFaqEntries.map(item => (
+                <div key={item.question}>
+                  <h3 className='font-medium text-(--main-color)'>
+                    {item.question}
+                  </h3>
+                  <p className='text-sm text-(--secondary-color)'>
+                    {item.answer}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
         </article>
       </main>
     </>
