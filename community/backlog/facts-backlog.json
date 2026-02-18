@@ -513,12 +513,12 @@
     "id": 86,
     "fact": "Japan has had the same family on the Chrysanthemum Throne for over 2,600 years - the world's oldest continuous hereditary monarchy.",
     "issued": false,
-    "completed": false
+    "completed": true
   },
   {
     "id": 87,
     "fact": "There's a Japanese word 'dokkiri' (ãƒ‰ãƒƒã‚­ãƒª) for the heart-pounding shock of surprise - now the name of prank TV shows.",
-    "issued": false,
+    "issued": true,
     "completed": false
   },
   {
