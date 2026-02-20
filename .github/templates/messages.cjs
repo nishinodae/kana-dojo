@@ -54,7 +54,7 @@ module.exports = {
         'Push your fixes to this PR',
       ],
       footer:
-        'Need help? Comment below. Helpful links: [Contributing]({repoUrl}/blob/main/CONTRIBUTING.md) · [Troubleshooting]({repoUrl}/blob/main/docs/TROUBLESHOOTING.md)',
+        'Need help? Comment below. Helpful links: [Beginner Contributing Guide]({repoUrl}/blob/main/docs/CONTRIBUTING-BEGINNERS.md) · [Troubleshooting]({repoUrl}/blob/main/docs/TROUBLESHOOTING.md)',
     },
     success: {
       title: '## ✅ Quality Check Passed',
@@ -158,7 +158,7 @@ module.exports = {
       resources: {
         title: '**Helpful resources:**',
         items: [
-          '[Contributing Guide]({repoUrl}/blob/main/CONTRIBUTING.md)',
+          '[Beginner Contributing Guide]({repoUrl}/blob/main/docs/CONTRIBUTING-BEGINNERS.md)',
           '[Troubleshooting]({repoUrl}/blob/main/docs/TROUBLESHOOTING.md)',
           '[Architecture]({repoUrl}/blob/main/docs/ARCHITECTURE.md)',
           '[Code of Conduct]({repoUrl}/blob/main/CODE_OF_CONDUCT.md)',
@@ -215,10 +215,10 @@ module.exports = {
       difficulty: 'Easy (good first issue!)',
       instructionsHeader: '### 📝 Instructions',
       footer:
-        "### 🚀 Quick Info\n\n| | |\n|---|---|\n| **Difficulty** | Beginner / Easy |\n| **Time** | < 1 minute |\n| **Language** | TypeScript, JSON |\n| **Framework** | Next.js, React |\n| **Good for** | First-time contributors, Hacktoberfest |\n\n> **No coding experience required!** This is a simple JSON/data file edit — perfect for your first open source contribution.\n\n**Questions?** Comment below and we'll help! 🙌\n\n_This is a beginner-friendly, good first issue for first-time open source contributors. No coding experience needed — just edit a JSON file! See our [Contributing Guide](../blob/main/.github/CONTRIBUTING.md) for step-by-step instructions._",
+        "### 🚀 Quick Info\n\n| | |\n|---|---|\n| **Difficulty** | Beginner / Easy |\n| **Time** | < 1 minute |\n| **Language** | TypeScript, JSON |\n| **Framework** | Next.js, React |\n| **Good for** | First-time contributors, Hacktoberfest |\n\n> **No coding experience required!** This is a simple JSON/data file edit — perfect for your first open source contribution.\n\n**Questions?** Comment below and we'll help! 🙌\n\n_This is a beginner-friendly, good first issue for first-time open source contributors. No coding experience needed — just edit a JSON file! See our [Beginner Contributing Guide](../blob/main/docs/CONTRIBUTING-BEGINNERS.md) for step-by-step instructions._",
       // Welcome comment posted on freshly created issues for engagement signals
       welcomeComment:
-        '👋 **This issue is up for grabs!** Comment below to claim it and get assigned.\n\nNo coding experience needed — just a simple JSON file edit. Check the instructions above and our [Contributing Guide](../blob/main/.github/CONTRIBUTING.md) to get started!\n\nがんばって! 💪',
+        '👋 **This issue is up for grabs!** Comment below to claim it and get assigned.\n\nNo coding experience needed — just a simple JSON file edit. Check the instructions above and our [Beginner Contributing Guide](../blob/main/docs/CONTRIBUTING-BEGINNERS.md) to get started!\n\nがんばって! 💪',
       // Reaction added to the welcome comment for additional engagement
       welcomeCommentReaction: 'heart',
       // Community Contributions milestone number (for issue discoverability)
